@@ -1,0 +1,31 @@
+import java.util.*;
+public class Solution {
+    public static void plusMinus(List<Integer> arr) {
+        int n = arr.size();
+        double pc= 0;
+        double nc = 0;
+        double zc = 0;
+        for (int num : arr) {
+            if (num > 0) {
+                pc++;
+            } else if (num < 0) {
+                nc++;
+            } else {
+                zc++;
+            }
+        }
+        System.out.printf("%.6f%n", pc / n);
+        System.out.printf("%.6f%n", nc / n);
+        System.out.printf("%.6f%n", zc / n);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        if (!sc.hasNextInt()) return;
+        int n = sc.nextInt();
+        List<Integer> arr = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            arr.add(sc.nextInt());
+        }
+        plusMinus(arr);
+    }
+}
