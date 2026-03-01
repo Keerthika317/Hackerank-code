@@ -1,0 +1,30 @@
+import java.util.*;
+public class Solution {
+    static long repeatedString(String s, long n) {
+        long c = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'a') {
+                c++;
+            }
+        }
+        long f = n / s.length();
+        long r = n % s.length();
+        long t = f * c;
+        for (int i = 0; i < r; i++) {
+            if (s.charAt(i) == 'a') {
+                t++;
+            }
+        }
+
+        return t;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String s = sc.nextLine();
+        long n = sc.nextLong();
+
+        System.out.println(repeatedString(s, n));
+    }
+}
