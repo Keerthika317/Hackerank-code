@@ -1,0 +1,36 @@
+import java.util.*;
+public class Solution {
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+        List<Integer> rg = new ArrayList<>();
+        for (int grade : grades) {
+            if (grade < 38) {
+                rg.add(grade);
+            } else {
+                int nextMultipleOfFive = ((grade / 5) + 1) * 5;
+                if (nextMultipleOfFive - grade < 3) {
+                    rg.add(nextMultipleOfFive);
+                } else {
+                    rg.add(grade);
+                }
+            }
+        }
+        return rg;
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        int n = scan.nextInt();
+        List<Integer> grades = new ArrayList<>();
+        
+        for (int i = 0; i < n; i++) {
+            grades.add(scan.nextInt());
+        }
+        List<Integer> result = gradingStudents(grades);
+        
+        // Print results
+        for (int res : result) {
+            System.out.println(res);
+        }
+    }
+}
