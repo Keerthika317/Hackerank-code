@@ -1,0 +1,11 @@
+def designerPdfViewer(h, word):
+    max_height = 0
+    for ch in word:
+        index = ord(ch) - ord('a')
+        if h[index] > max_height:
+            max_height = h[index]
+    return max_height * len(word)
+
+h = list(map(int, input().split()))
+word = input().strip()
+print(designerPdfViewer(h, word))
